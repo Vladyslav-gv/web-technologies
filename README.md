@@ -42,9 +42,9 @@ As part of my studies, I work with the following technologies:
 | Lab         | Title                 | Status      |
 | ----------- | --------------------- | ----------- |
 | Lab 01      | Git, GitHub, Markdown | In progress |
-| Lab 02      |                      |             |
+| Lab 02      |                       |             |
 | Lab 03      |                       |             |
 
 ## Contacts
 
-GitHub: [my GitHub](https://github.com/gitolvalet@gmail.com)
+GitHub: [my GitHub](https://github.com/Vladyslav-gv)
