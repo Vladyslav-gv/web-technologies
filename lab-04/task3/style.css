@@ -1,0 +1,13 @@
+
+a { color: purple; }
+
+.main-link { color: green; }
+
+ul li ul { list-style: none; }
+
+.veggies { list-style-image: url("img/icon.png"); }
+.berries { list-style-type: square; }
+
+.berries a { text-decoration: none; }
+
+ol { list-style-position: inside; }

@@ -1,0 +1,25 @@
+
+body { font-family: "Times New Roman", serif; }
+h1   { color: red; font-size: 32px; text-align: center; }
+h2   { font-style: italic; text-align: center; }
+hr   { border: 0; height: 4px; background: green; width: 70%; }
+mark { background: yellow; }
+del  { text-decoration: line-through; }
+
+#recipe {
+  width: 700px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: 1px solid #99f;
+  text-align: center;
+}
+#tip {
+  font-family: "Courier New", monospace;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.product { margin: 4px 0; }
+.name    { font-weight: bold; font-size: 18px; }
+.amount  { font-size: 14px; }

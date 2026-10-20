@@ -1,0 +1,45 @@
+/* п. 1: span у p.text-background (комбінатор нащадків: клас + тег) */
+.text-background span {
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* п. 2: span у .text-background, що лежить у div (тег + клас + тег) */
+div .text-background span { background: yellow; }
+
+/* п. 3: span усередині іншого span (два теги) */
+span span {
+  background: gray;
+  text-decoration: line-through;
+}
+
+/* п. 4: span у span у нумерованому списку (три теги) */
+ol span span {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* п. 5: абзаци – прямі діти section (дочірній комбінатор двох тегів) */
+section > p {
+  text-shadow: 3px 3px 5px #c33;   /* колір – на вибір */
+  text-indent: 50px;
+}
+
+/* п. 6: ul, що є прямою дитиною li (дочірній комбінатор двох тегів) */
+li > ul { list-style-image: url("img/icon.png"); }
+
+/* п. 7: .text-background – прямі діти div (тег + клас) */
+div > .text-background { word-spacing: 50px; }
+
+/* п. 8: абзаци – прямі діти div.text-bold (клас + тег) */
+.text-bold > p { font-weight: bold; }
+
+/* п. 9: абзаци в section, що є прямою дитиною div.text-bold (клас + два теги) */
+.text-bold > section > p { line-height: 45px; }
+
+/* п. 10: абзац одразу після img (наступний сусід, два теги) */
+img + p { background: brown; }
+
+/* п. 11: усі абзаци-сусіди після section (загальний сусідній комбінатор, два теги) */
+section ~ p { color: red; }
