@@ -1,0 +1,80 @@
+/* ===== Завдання 5: box-sizing, overflow, display ===== */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+/* ---------- Частина 1: box-sizing ---------- */
+/* Спільні стилі для двох блоків */
+.part-box div {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #1f6fb2;
+    background-color: #d6e8f7;
+    margin: 20px;
+}
+
+.part-box div:nth-of-type(1) {
+    box-sizing: content-box;
+    /* Загальна ширина: 300 + 2 * 20 + 2 * 5 = 350px */
+}
+
+.part-box div:nth-of-type(2) {
+    box-sizing: border-box;
+    /* Загальна ширина: 300px */
+}
+
+/* ---------- Частина 2: overflow ---------- */
+.part-overflow div {
+    display: inline-block;
+    vertical-align: top;
+    width: 220px;
+    max-height: 80px;
+    border: 2px solid black;
+    margin: 0 15px 120px 0;     /* знизу запас, щоб visible-текст не налізав на наступний блок */
+}
+
+.part-overflow div:nth-of-type(1) { overflow: visible; }
+.part-overflow div:nth-of-type(2) { overflow: hidden; }
+.part-overflow div:nth-of-type(3) { overflow: scroll; }
+.part-overflow div:nth-of-type(4) { overflow: auto; }
+
+/* ---------- Частина 3: display (горизонтальне меню без float/flex) ---------- */
+.part-menu ul {
+    list-style: none;          /* ховаємо маркери */
+    margin: 0;
+    padding: 0;
+    background-color: #1f4e79;
+}
+
+.part-menu li {
+    display: inline-block;     /* пункти в рядок, але з підтримкою width/padding */
+}
+
+.part-menu a {
+    display: block;            /* вся область посилання клікабельна */
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.part-menu a:hover {
+    background-color: #2f78b5;
+}
+
+/* Прихований пункт меню (4-й).
+   display: none повністю видаляє елемент із потоку: він не займає місця
+   і не відображається, сторінка формується так, ніби його немає.
+   Відмінності від інших способів:
+   - visibility: hidden — елемент невидимий, але ЗАЛИШАЄ порожнє місце;
+   - opacity: 0 — елемент прозорий, місце зайняте і він залишається клікабельним;
+   - position: absolute + зсув за екран — елемент виймається з потоку, але існує. */
+.part-menu li:nth-child(4) {
+    display: none;
+}

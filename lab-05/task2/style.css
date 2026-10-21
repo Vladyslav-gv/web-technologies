@@ -1,0 +1,37 @@
+/* ===== Завдання 2: таблиця (одна колірна гама — червона) =====
+   Заборонено класи та id — лише селектори тегів і псевдокласи. */
+
+table {
+    border-collapse: collapse;
+    font-family: "Times New Roman", serif;
+    text-align: center;
+}
+
+th, td {
+    border: 2px solid white;
+    padding: 20px 30px;
+}
+
+/* ---------- Шапка ---------- */
+thead th {
+    color: white;
+    font-size: 18px;
+}
+
+/* Від найсвітлішого до найтемнішого */
+thead th:nth-child(5) { background-color: #f1dcdc; }
+thead th:nth-child(2) { background-color: #e4b5b5; }
+thead th:nth-child(3) { background-color: #d79393; }
+thead th:nth-child(4) { background-color: #923b3b; }
+thead th:nth-child(5) { background-color: #652525; }
+
+/* ---------- Перший стовпець (заголовки рядків) ---------- */
+tbody th {
+    background-color: #bb5252;
+    color: white;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+tbody tr:nth-child(odd)  td { background-color: #e4b5b5; }
+tbody tr:nth-child(even) td { background-color: #f1dcdc; }

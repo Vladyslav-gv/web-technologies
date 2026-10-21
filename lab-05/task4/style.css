@@ -1,0 +1,52 @@
+/* ===== Завдання 4: фони лише з градієнтів (синя гама) ===== */
+
+/* Спільні стилі для всіх блоків */
+div {
+    display: inline-block;       /* блоки в ряд */
+    width: 300px;
+    height: 200px;
+    margin: 20px;                /* зовнішній відступ між блоками */
+    padding: 15px;               /* внутрішній відступ */
+    box-sizing: border-box;      /* щоб розмір залишався 300x200 разом з padding */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white;
+    vertical-align: top;
+}
+
+/* Блок 1: діагональні смуги двох відтінків, різкі межі (50%) */
+div:nth-of-type(1) {
+    background-image: linear-gradient(45deg, #1f6fb2 50%, #5aa7e0 50%);
+    background-size: 40px 40px;
+}
+
+/* Блок 2: клітинки — два лінійні градієнти під прямим кутом,
+   один із кольорів напівпрозорий */
+div:nth-of-type(2) {
+    background-color: #e8f3fc;
+    background-image:
+        linear-gradient(transparent 50%, rgba(31, 111, 178, 0.3) 50%),
+        linear-gradient(90deg, rgba(31, 111, 178, 0.3) 50%, transparent 50%);
+    background-size: 40px 40px;  /* розмір клітинки — на вибір */
+}
+
+/* Блок 3: радіальний градієнт circle, початкова точка 30px 20px,
+   >= 3 кольори з позиціями у %, розмір farthest-corner */
+div:nth-of-type(3) {
+    background-image: radial-gradient(
+        circle farthest-corner at 30px 20px,
+        #ffffff 0%,
+        #5aa7e0 40%,
+        #1f6fb2 70%,
+        #0b3558 100%
+    );
+}
+
+/* Блок 4: напівпрозорий градієнт поверх суцільного кольору */
+div:nth-of-type(4) {
+    background-color: #33bbf1;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 50%;
+}

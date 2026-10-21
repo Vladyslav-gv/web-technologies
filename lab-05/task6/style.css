@@ -1,0 +1,121 @@
+/* ===== Завдання 6: сайт-візитівка з фоновими зображеннями =====
+
+
+/* ---------- Фон сторінки ---------- */
+body {
+    background-color: #1b2a41;               /* запасний колір, поки зображення вантажиться */
+    background-image: url('img/4HI322s8LE.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;            /* фон не рухається при прокручуванні */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+}
+
+/* ---------- Контейнер ---------- */
+.container {
+    box-sizing: border-box;
+    max-width: 900px;
+    min-width: 320px;
+    margin: 0 auto;                          /* центрування по горизонталі */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Коли вікно браузера вужче за 320px: через min-width контейнер
+       перестає стискатися й залишається 320px завширшки, тому частина
+       контенту виходить за межі вікна й з'являється горизонтальна прокрутка. */
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* ---------- Блок «Теги» (display) ---------- */
+.tags div {
+    display: inline;                         /* рядковий елемент, виводиться в один рядок */
+    width: 200px;
+    height: 100px;
+    background-color: #f5a623;
+    padding: 5px 10px;
+    margin-right: 5px;
+    /* width і height НЕ діють на inline-елементи: розмір визначається
+       лише вмістом (текстом). Щоб вони працювали, потрібен
+       display: block або inline-block. */
+}
+
+.tags span {
+    display: block;                          /* блоковий елемент: стовпцем */
+    width: 150px;                            /* тепер width діє */
+    margin-top: 5px;
+    background-color: #8bc34a;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+/* ---------- Блок «Повторення фону» (background-repeat) ---------- */
+.repeat div {
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;                            /* 250 і 200 не кратні 60 — різниця space/round помітна */
+    height: 200px;
+    margin: 0 10px 10px 0;
+    background-image: url('img/icon.svg');   /* картинка 60x60 */
+    background-color: white;
+    border: 1px solid #999;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.repeat-x     { background-repeat: repeat-x; }
+.repeat-y     { background-repeat: repeat-y; }
+.repeat-space { background-repeat: space; }
+.repeat-round { background-repeat: round; }
+/* Різниця між space та round:
+   - space: картинка повторюється цілу кількість разів БЕЗ зміни розміру,
+     а залишок місця рівномірно розподіляється між плитками як порожні проміжки;
+   - round: кількість плиток теж ціла, але замість проміжків плитки
+     розтягуються або стискаються так, щоб заповнити область повністю. */
+
+/* ---------- Блок «Масштабування» (background-size) ---------- */
+.size div {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 200px;
+    margin: 0 10px 10px 0;
+    border: 2px solid black;
+    background-image: url('img/msedge_nRoE018u0u.jpg');  /* квадратна картинка 400x400 */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.size-contain { background-size: contain; }  /* картинка повністю вміщується */
+.size-cover   { background-size: cover; }    /* заповнює блок, частина обрізається */
+
+/* ---------- Блок «Прокручування фону» (background-attachment) ---------- */
+.attachment div {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    max-height: 150px;
+    overflow: auto;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    border: 1px solid #555;
+    background-image: url('img/pattern.svg');
+    box-sizing: border-box;
+}
+
+.attach-scroll { background-attachment: scroll; }
+.attach-local  { background-attachment: local; }
+/* Різниця під час прокручування вмісту всередині блоку:
+   - scroll: фон прив'язаний до самого блоку (його видимої рамки) і
+     залишається на місці, поки текст усередині прокручується;
+   - local: фон прив'язаний до вмісту, тому прокручується разом із текстом. */

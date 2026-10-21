@@ -1,0 +1,94 @@
+/* ===== Завдання 1: дворівневий список ===== */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Основний блок */
+div {
+    background-color: rgb(255, 165, 0);
+    width: 500px;
+    padding: 20px;
+    color: white;
+}
+
+/* Заголовок 1-го рівня */
+h1 {
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+/* ---------- Загальні вимоги до списків ---------- */
+ul {
+    list-style: none;            /* прибираємо стандартні маркери */
+    margin: 0;
+}
+
+li {
+    /* маркер-зображення: задаємо через background-* */
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 30px 30px;
+}
+
+/* ---------- Список 1-го рівня ---------- */
+ul.level-1 {
+    background-color: rgb(103, 158, 128);
+    padding: 0 20px 0 50px;      /* верх право низ ліво: правий 20, лівий 50 */
+    margin-bottom: 10px;         /* проміжок між двома блоками (за зразком) */
+}
+
+/* Іконка пункту 1-го рівня стоїть у лівому "полі" списку (50px).
+   Щоб вона була видима, "розтягуємо" li ліворуч на ширину padding. */
+ul.level-1 > li {
+    margin-left: -50px;
+    padding-left: 50px;
+    background-image: url('icons/checklist.svg');
+    background-position: 10px 5px;   /* підлаштуйте під свій макет */
+    background-size: 30px 30px;
+}
+
+/* ---------- Список 2-го рівня ---------- */
+ul.level-2 {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+ul.level-2 > li {
+    background-color: rgb(153, 180, 102);
+    margin-bottom: 10px;         /* нижній відступ від кожного елемента */
+    padding-left: 40px;          /* місце під іконку-маркер */
+    background-position: 5px center;
+    background-size: 30px 30px;
+}
+
+/* Іконки для кожного пункту (змініть шляхи на власні іконки з папки icons) */
+li.phone    { background-image: url('icons/phone.svg'); }
+li.ticket   { background-image: url('icons/ticket.svg'); }
+li.bed      { background-image: url('icons/bed.svg'); }
+li.car      { background-image: url('icons/car.svg'); }
+li.bar      { background-image: url('icons/bar.svg'); }
+li.casino   { background-image: url('icons/casino.svg'); }
+li.museum   { background-image: url('icons/museum.svg'); }
+li.festival { background-image: url('icons/festival.svg'); }
+
+/* ---------- Елементи span ---------- */
+span {
+    padding: 10px 20px;          /* верх/низ 10, ліво/право 20 */
+    display: inline-block;
+}
+
+/* span у списку 1-го рівня (заголовок розділу) */
+ul.level-1 > li > span {
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgb(199, 124, 106);
+    margin-bottom: 10px;
+}
+
+/* span у списку 2-го рівня (пункти) */
+ul.level-2 span {
+    background-color: rgb(218, 106, 32);
+}
