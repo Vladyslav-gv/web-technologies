@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна №6 — Завдання 4: горизонтальна навігація</title>
+    <!-- Піктограми Google Fonts Icons (Material Icons) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-h">
+
+    <!-- FIXED-панель угорі сторінки -->
+    <nav class="nav-h">
+        <ul class="nav-h-list">
+            <!-- 1-й рівень: лише піктограми. Клас "active" — поточний пункт -->
+            <li class="nav-h-item active">
+                <a class="nav-h-link" href="#"><span class="material-icons">home</span></a>
+            </li>
+
+            <li class="nav-h-item">
+                <a class="nav-h-link" href="#"><span class="material-icons">search</span></a>
+                <!-- 2-й рівень (випадне меню) -->
+                <ul class="nav-h-sub">
+                    <li><a href="#">Пошук людей</a></li>
+                    <li class="has-sub">
+                        <a href="#">Пошук файлів</a>
+                        <!-- 3-й рівень (випадає вправо) -->
+                        <ul class="nav-h-sub nav-h-sub--right">
+                            <li><a href="#">Документи</a></li>
+                            <li><a href="#">Зображення</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-h-item">
+                <a class="nav-h-link" href="#"><span class="material-icons">mail</span></a>
+                <ul class="nav-h-sub">
+                    <li><a href="#">Вхідні</a></li>
+                    <li><a href="#">Надіслані</a></li>
+                </ul>
+            </li>
+
+            <!-- Останній пункт притискається вправо через float: right -->
+            <li class="nav-h-item nav-h-item--right">
+                <a class="nav-h-link" href="#"><span class="material-icons">person</span></a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <!-- "Липкий" (sticky) підзаголовок: прилипає під fixed-панеллю -->
+        <div class="sticky-bar">Липка панель (position: sticky; top: 58px)</div>
+
+        <p>Прокрутіть сторінку, щоб побачити поведінку fixed та sticky.</p>
+        <p style="height: 600px">Довгий текст-заповнювач…</p>
+        <p style="height: 600px">Ще текст…</p>
+    </main>
+</body>
+</html>

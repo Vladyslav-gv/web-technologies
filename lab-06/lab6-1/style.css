@@ -1,0 +1,57 @@
+/* ===== Завдання 1, варіант 12: накладання блоків (position + z-index) ===== */
+
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+.wrapper {
+    position: relative;
+    width: 635px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+
+.block {
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 12px;
+}
+
+
+.block-1 {
+    left: 0;
+    top: 48px;         
+    width: 220px;      
+    height: 140px;      
+    background-color: #548dd4;
+    color: white;
+    z-index: 1;
+}
+
+
+.block-2 {
+    left: 218px;
+    top: 0;
+    width: 210px;
+    height: 120px;
+    background-color: #00b050;
+    color: #222;
+    z-index: 2;         
+}
+
+
+.block-3 {
+    left: 428px;
+    top: 63px;
+    width: 207px;
+    height: 125px;
+    background-color: #92cddc;
+    color: #222;
+    z-index: 1;
+}

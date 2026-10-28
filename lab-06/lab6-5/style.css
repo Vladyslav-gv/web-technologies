@@ -1,0 +1,121 @@
+/* ===== Завдання 5: тінь, прозорість, накладання ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ccc;
+}
+
+/* Контейнер: relative — батько для absolute-елементів */
+.weather {
+    position: relative;
+    width: 530px;
+    height: 417px;
+    margin: 30px auto;
+    background-color: #aaa;
+    overflow: hidden;
+}
+
+/* Чорна картка */
+.card {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 345px;
+    height: 330px;
+    background-color: #000;
+    z-index: 1;
+}
+
+/* Хмара: білий радіальний градієнт + opacity */
+.card-cloud {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    width: 250px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, #fff 10%, transparent 75%);
+    opacity: 0.85;               /* <-- прозорість */
+}
+
+.card-cloud::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: 35px;
+    width: 110px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 20%, transparent 75%);
+    opacity: 0.85;               /* <-- прозорість */
+}
+
+.card-cloud::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    width: 100px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 20%, transparent 75%);
+    opacity: 0.85;               /* <-- прозорість */
+}
+
+.card-temp {
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    font-size: 110px;
+    font-weight: 700;
+    color: #aaa;
+}
+
+/* Стрілки: напівпрозорий фон */
+.arrows {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 3;                  /* над карткою */
+}
+.arrow {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+    background-color: rgba(120, 120, 120, 0.7);
+    cursor: pointer;
+}
+.arrow:hover { background-color: rgba(60, 60, 60, 0.9); }
+
+/* Прогноз: світла панель з тінню поверх картки */
+.forecast {
+    position: absolute;
+    left: 195px;
+    top: 290px;
+    width: 335px;
+    height: 110px;
+    background-color: #d9d9d9;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);   /* <-- тінь */
+    z-index: 2;                  /* над карткою (1) */
+}
+
+.day {
+    float: left;
+    width: 20%;
+    padding: 30px 0 0 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+.day small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+}
+.day:hover { color: #000; }

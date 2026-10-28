@@ -1,0 +1,78 @@
+/* ===== Завдання 2, варіант 12 =====
+   hover на Блок 1 -> з'являється Блок 2
+   hover на Блок 2 -> з'являється Блок 3 */
+
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Без flex: блоки позиціонуються абсолютно всередині relative-контейнера.
+   Це дозволяє розташувати їх візуально в порядку 1, 3, 2,
+   не змінюючи порядок у HTML (1, 2, 3), потрібний для комбінатора +. */
+.wrapper {
+    position: relative;
+    width: 330px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.block {
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+/* Блок 1: високий зелений зліва, завжди видимий */
+.block-1 {
+    left: 0;
+    width: 110px;
+    height: 150px;
+    background-color: #00b050;
+    color: #222;
+}
+
+/* Блок 2: синій, у HTML другий, а візуально ПРАВИЙ */
+.block-2 {
+    left: 240px;              /* візуально правий */
+    width: 90px;
+    height: 150px;
+    background-color: #548dd4;
+    opacity: 0;               /* ховаємо, але місце залишається */
+}
+
+/* Блок 3: фіолетовий, у HTML третій, а візуально СЕРЕДНІЙ */
+.block-3 {
+    left: 120px;              /* візуально середній */
+    width: 110px;
+    height: 150px;
+    background-color: #5f497a;
+    opacity: 0;
+}
+
+/* Наведення на Блок 1 -> показати Блок 2 (наступний сусід) */
+.block-1:hover + .block-2 {
+    opacity: 1;
+}
+
+/* Щоб Блок 2 не зникав, коли курсор перейшов з Блоку 1 на нього.
+   (opacity: 0 лишається "наводимим", на відміну від visibility: hidden) */
+.block-2:hover {
+    opacity: 1;
+}
+
+/* Наведення на Блок 2 -> показати Блок 3 */
+.block-2:hover + .block-3 {
+    opacity: 1;
+}
+
+/* Бонус: плавна поява */
+.block-2,
+.block-3 {
+    transition: opacity 0.3s;
+}

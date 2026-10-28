@@ -1,0 +1,138 @@
+/* ===== Завдання 4: навігаційні панелі з випадними меню ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+ul { margin: 0; padding: 0; list-style: none; }
+a  { text-decoration: none; }
+
+/* =====================================================
+   ГОРИЗОНТАЛЬНА ПАНЕЛЬ
+   ===================================================== */
+.nav-h {
+    position: fixed;         
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    background-color: #555;
+    z-index: 100;
+
+.nav-h-list:after {         
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.nav-h-item {
+    position: relative;       
+    float: left;
+}
+.nav-h-item--right {
+    float: right;            
+}
+
+.nav-h-link {
+    display: block;
+    width: 70px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    color: white;
+}
+.nav-h-link .material-icons { vertical-align: middle; }
+
+/* hover + активний пункт */
+.nav-h-item:hover > .nav-h-link { background-color: #777; }
+.nav-h-item.active > .nav-h-link { background-color: #4caf50; }
+
+/* Випадні підменю: приховані, показуються при hover на батьківському li */
+.nav-h-sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #666;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.nav-h-item:hover > .nav-h-sub,
+.has-sub:hover > .nav-h-sub {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-h-sub li { position: relative; }
+.nav-h-sub a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+}
+.nav-h-sub a:hover { background-color: #888; }
+
+/* 3-й рівень — вправо від пункту */
+.nav-h-sub--right {
+    top: 0;
+    left: 100%;
+}
+
+/* Сторінка під fixed-панеллю */
+.page-h .content { padding: 70px 20px 20px; }
+
+
+.sticky-bar {
+    position: sticky;
+    top: 58px;
+    padding: 10px;
+    background-color: #ffd166;
+    z-index: 50;
+}
+
+/* =====================================================
+   ВЕРТИКАЛЬНА ПАНЕЛЬ
+   ===================================================== */
+.nav-v {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;            /* повна висота */
+    background-color: #0069b8;
+}
+
+.nav-v-item { position: relative; }
+
+.nav-v-link {
+    display: block;
+    padding: 14px 16px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.nav-v-link .material-icons {
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.nav-v-item:hover > .nav-v-link { background-color: #0a85e0; }
+.nav-v-item.active > .nav-v-link { background-color: #003f70; }
+
+/* 2-й і 3-й рівні випадають праворуч */
+.nav-v-sub {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background-color: #0069b8;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.nav-v-item:hover > .nav-v-sub {
+    visibility: visible;
+    opacity: 1;
+}
+
+.content-v { margin-left: 220px; padding: 20px; }

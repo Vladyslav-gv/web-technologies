@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна №6 — Завдання 4: вертикальна навігація</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-v">
+
+    <!-- Фіксована вертикальна панель на повну висоту вікна -->
+    <nav class="nav-v">
+        <ul class="nav-v-list">
+            <li class="nav-v-item active">
+                <a class="nav-v-link" href="#"><span class="material-icons">home</span>Home</a>
+            </li>
+
+            <li class="nav-v-item">
+                <a class="nav-v-link" href="#"><span class="material-icons">article</span>About</a>
+                <!-- 2-й рівень -->
+                <ul class="nav-v-sub">
+                    <li class="nav-v-item">
+                        <a class="nav-v-link" href="#">Команда</a>
+                        <!-- 3-й рівень -->
+                        <ul class="nav-v-sub">
+                            <li class="nav-v-item"><a class="nav-v-link" href="#">Керівництво</a></li>
+                            <li class="nav-v-item"><a class="nav-v-link" href="#">Розробники</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-v-item"><a class="nav-v-link" href="#">Історія</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-v-item">
+                <a class="nav-v-link" href="#"><span class="material-icons">coffee</span>Work With Me</a>
+                <ul class="nav-v-sub">
+                    <li class="nav-v-item"><a class="nav-v-link" href="#">Послуги</a></li>
+                    <li class="nav-v-item"><a class="nav-v-link" href="#">Контакти</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content-v">
+        <h1>Контент сторінки</h1>
+        <p>Вертикальна панель зафіксована зліва й займає всю висоту вікна.</p>
+    </main>
+</body>
+</html>

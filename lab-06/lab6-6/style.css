@@ -1,0 +1,185 @@
+/* ===== Завдання 6: попап без JavaScript (checkbox hack) ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #555;
+}
+
+/* Без flex: елементи в рядок через inline-block + text-align: right */
+.header {
+    text-align: right;
+    padding: 10px 40px;
+}
+.header-link {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+.header-link:hover { text-decoration: underline; }
+.header-link:focus { outline: 2px solid #8ab4f8; }
+
+/* ---------- Обгортка ---------- */
+.popup-wrap {
+    position: relative;      /* батько для absolute-попапу */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    text-align: left;        /* скидаємо right від .header для вмісту попапу */
+}
+
+/* Прихований checkbox: не display:none, щоб лишався у порядку Tab */
+.popup-toggle,
+.more-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    cursor: pointer;
+}
+.more-toggle {
+    width: 1px;
+    height: 1px;
+}
+
+/* ---------- Кнопка popup-button ---------- */
+.popup-button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 22px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.popup-button:hover { background-color: #eee; }
+
+/* Фокус на прихованому checkbox підсвічує label (+ — сусід) */
+.popup-toggle:focus + .popup-button {
+    border-color: #8ab4f8;
+}
+.popup-toggle:checked + .popup-button {
+    border-color: #8ab4f8;
+}
+
+/* ---------- Сам попап ---------- */
+.popup {
+    position: absolute;
+    top: 45px;
+    right: -10px;
+    width: 375px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+
+    /* Закритий стан: visibility: hidden — вміст не потрапляє в Tab */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Стрілочка-«носик» над попапом */
+.popup:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    transform: rotate(45deg);
+}
+
+/* Відкритий стан: checkbox відмічено -> показуємо сусідній .popup (~) */
+.popup-toggle:checked ~ .popup {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ---------- Вміст ---------- */
+/* Без flex: іконки — float: left по 33.33% (по 3 в ряд).
+   overflow на контейнері створює BFC, тому він охоплює float-дітей. */
+.popup-content {
+    box-sizing: border-box;
+    max-height: 260px;       /* початкова висота: 2 ряди іконок */
+    padding: 20px 10px;
+    overflow-y: hidden;
+}
+
+.popup-extra {
+    display: none;           /* додаткові іконки приховані */
+    clear: both;             /* починаються під основними іконками */
+    overflow: hidden;        /* охоплює float-діти */
+}
+
+/* Стан "More": більше іконок + прокрутка */
+.more-toggle:checked ~ .popup-content {
+    max-height: 340px;
+    overflow-y: auto;
+}
+.more-toggle:checked ~ .popup-content .popup-extra {
+    display: block;
+}
+
+/* Фокус контейнера (для прокрутки стрілками) */
+.popup-content:focus {
+    outline: 2px solid #8ab4f8;
+    outline-offset: -2px;
+}
+
+/* ---------- Іконка-плитка ---------- */
+.popup-item {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    width: 33.33%;
+    padding: 12px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    text-decoration: none;
+}
+.popup-icon {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 36px;
+}
+.popup-item:hover {
+    border-color: #ddd;
+    background-color: #f8f8f8;
+}
+.popup-item:focus {
+    border-color: #8ab4f8;
+    outline: none;
+}
+
+/* ---------- Кнопка More ---------- */
+.popup-more {
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+.popup-more:hover { background-color: #e6e6e6; }
+.more-toggle:focus ~ .popup-more,
+.popup-more:focus {
+    outline: 2px solid #8ab4f8;
+    outline-offset: -2px;
+}
+/* Коли "More" вже натиснута — ховаємо кнопку */
+.more-toggle:checked ~ .popup-more {
+    display: none;
+}
